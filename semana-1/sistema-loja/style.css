@@ -1,0 +1,90 @@
+* {margin:0; padding:0;}
+
+#site{
+    background-color: #7d7d7d;
+    height: 100%;
+}
+
+#menu {
+    position: fixed;
+    text-align: right;
+    right:2px;
+    top: 0;
+    background-color: #A0A0A0;
+    width: 100%;   
+    padding-right:10px;
+}
+
+#menu ul li {
+    display: inline;
+    color:white;
+    margin-left: 10px;
+        
+}
+
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer {
+    position: absolute;
+    bottom:0;
+    width:100%;
+    background-color: #A0A0A0; 
+    color: white;
+    
+}
+
+html, body {
+    height:100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer p {
+    display: inline;
+    position: absolute;
+    bottom:0;
+    right:2%;
+    color: white;       
+    
+}
+
+#img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto ;
+    
+}
+
+#add {
+    text-align: center;
+    padding-top: 10%;
+    
+}
+
+#form {
+    text-align: center;
+    margin-top:10%;
+}
+
+#funcionarios {
+    text-align: center;
+    margin-top: 20%;
+}
+
+#titulofuncionarios {
+    text-align: center;
+    padding-top: 10%;
+}
+
+#tabela {
+    margin-top: 5%;
+}
+
+#estoque {
+    padding-top: 3%;
+}
+
+
