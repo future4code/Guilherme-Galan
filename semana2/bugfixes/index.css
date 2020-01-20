@@ -17,6 +17,19 @@ h2 {
     text-align: center;
 }
 
+li::before {
+    content: counter(li);
+    color: white;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+li {
+    counter-increment: li;
+}
+
+
 input {
     height: 20px;
     width: 500px;
@@ -72,10 +85,13 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    
+    
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    
 }
 
 #container-para-comprar {
