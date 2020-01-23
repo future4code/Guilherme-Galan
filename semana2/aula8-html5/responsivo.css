@@ -1,0 +1,31 @@
+@media screen and (min-width: 0) {
+    .video__conteudo {
+        flex-direction: column;
+    }
+
+    .video__card {
+        grid-auto-rows: 150px auto;
+        width: 100%;
+        margin-bottom: 3rem;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .video__conteudo{
+        flex-direction: row;
+    }
+
+    .video__card {
+        grid-template-rows: 173px auto;
+        width: calc(50% - 1rem);
+        margin-bottom: 3rem;
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .video__card {
+        width: calc(25% - 1rem);
+    }
+}
