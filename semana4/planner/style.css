@@ -1,0 +1,30 @@
+header{
+    height: 100px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+main{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px 250px;
+    margin-right: 50px;
+    grid-gap: 20px;    
+}
+
+div {    
+    border:solid 1px black;
+    margin-left: 10px;    
+}
+
+div h2 {
+    text-align: center;
+}
+
+ul li{
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+

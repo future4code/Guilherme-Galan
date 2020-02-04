@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js" defer></script>
+    <title>Week Planner - Guilherme Galan</title>       
+</head>
+<body>
+
+    <header>
+        <label for="nova-tarefa">Adicionar Tarefa:</label>
+        <input type="text" name="nova-tarefa" id="nova-tarefa" size="50">
+        <select name="diaDaSemana" id="diaDaSemana">
+            <option value="segunda">Segunda-Feira</option>
+            <option value="terca">Terça-Feira</option>
+            <option value="quarta">Quarta-Feira</option>
+            <option value="quinta">Quinta-Feira</option>
+            <option value="sexta">Sexta-Feira</option>
+            <option value="sabado">Sábado</option>
+            <option value="domingo">Domingo</option>
+        </select>    
+        <button onclick="adicionarTarefa()">Criar Tarefa</button>
+        <button onclick="apagarTarefas()">Apagar todas as tarefas</button>
+    </header>
+
+    <main>                
+        <div id="segunda"><h2>Segunda-Feira</h2>
+            <ul id="conteudo-tarefa-segunda"></ul>
+        </div>
+        <div id="terca"><h2>Terça-Feira</h2>
+            <ul id="conteudo-tarefa-terca"></ul>
+        </div>
+        <div id="quarta"><h2>Quarta-Feira</h2>
+            <ul id="conteudo-tarefa-quarta"></ul>
+        </div>
+        <div id="quinta"><h2>Quinta-Feira</h2>
+            <ul id="conteudo-tarefa-quinta"></ul>
+        </div>
+        <div id="sexta"><h2>Sexta-Feira</h2>
+            <ul id="conteudo-tarefa-sexta" ></ul>
+        </div>
+        <div id="sabado"><h2>Sábado</h2>
+            <ul id="conteudo-tarefa-sabado"></ul>
+        </div>
+        <div><h2>Domingo</h2>
+            <ul id="conteudo-tarefa-domingo"></ul>
+        </div>
+    </main>
+    
+</body>
+</html>
