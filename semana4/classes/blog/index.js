@@ -1,19 +1,23 @@
 class Post {
-    constructor(titulo, autor, conteudo){
+    constructor(titulo, autor, conteudo) {
+
         this.titulo = titulo
         this.autor = autor
         this.conteudo = conteudo
-
-
-        this.newPost= () =>{
-            document.getElementById("titulo").value = titulo
-            document.getElementById("autor").value = autor
-            document.getElementById("conteudo").value = conteudo
-
-            let post = (this.titulo, this.autor, this.conteudo)
-
-            console.log(post)
-
-        }
     }
+}
+
+
+function novoPost(){
+    
+    let titulo = document.getElementById("titulo").value
+    let autor = document.getElementById("autor").value 
+    let conteudo= document.getElementById("conteudo").value
+
+    let post = new Post(titulo, autor, conteudo)
+
+    console.log(post)
+
+    
+
 }
