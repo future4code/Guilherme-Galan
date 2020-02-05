@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="index.js" defer></script>
-    <link href="index.css" type="text/css" rel="stylesheet" />
-    <title>Blog do Galan</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="index.js" defer></script>
+  <link href="index.css" type="text/css" rel="stylesheet" />
+  <title>Blog do Galan</title>
+</head>
+
+<body>
   <header>
     <h1>Bem vindo ao meu Blog</h1>
   </header>
   <main>
     <h2>Crie um novo Post</h2>
-    
-      <label for="titulo">Título</label>
-      <input type="text" id="titulo">
-      <label for="autor">Autor</label>
-      <input type="text" id="autor">
-      <label for="conteudo">Conteúdo</label>
-      <textarea id="conteudo"></textarea>
-      <button id="botao" onclick="novoPost()">Criar Post</button>      
-    
+
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo">
+    <label for="autor">Autor</label>
+    <input type="text" id="autor">
+    <label for="conteudo">Conteúdo</label>
+    <textarea cols="70" rows="10" id="conteudo"></textarea>
+    <label for="imagem">Imagem</label>
+    <input type="text" id="imagem">
+    <button id="botao" onclick="novoPost()">Criar Post</button>
+
     <section id="postagens">
 
     </section>
+
   </main>
-  </body>
+</body>
+
 </html>

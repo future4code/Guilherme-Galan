@@ -1,30 +1,30 @@
-class Post{
-    constructor(titulo, autor, conteudo) {
+class Post {
+    constructor(titulo, autor, conteudo, imagem) {
         this.titulo = titulo
         this.autor = autor
         this.conteudo = conteudo
+        this.imagem = imagem
     }
 }
 
 let postagens = []
 
-function novoPost(){
+function novoPost() {
     let titulo = document.getElementById("titulo").value
     let autor = document.getElementById("autor").value
     let conteudo = document.getElementById("conteudo").value
+    let imagem = document.getElementById("imagem").value
 
-    let post = new Post(titulo, autor, conteudo)
+    let post = new Post(titulo, autor, conteudo, imagem)
 
     postagens.push(post)
 
-    console.log(post)
-    console.log(postagens)
-      
+    adicionarPostNoHtml(titulo, autor, conteudo, imagem)
+
 }
 
 
-function adicionarPostnoHtml(array){
-    
-
+function adicionarPostNoHtml(titulo, autor, conteudo, imagem) {
+    document.getElementById("postagens").innerHTML += "<h2>" + titulo + "</h2>" + "Autor: " + autor + "<br>" + conteudo + "<br>" + "<img src=\"" + imagem + "\" >"
 
 }
