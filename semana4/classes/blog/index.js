@@ -20,6 +20,13 @@ function novoPost() {
     postagens.push(post)
 
     adicionarPostNoHtml(titulo, autor, conteudo, imagem)
+    
+    console.log(postagens)
+
+    document.getElementById("titulo").value = ""
+    document.getElementById("autor").value = ""
+    document.getElementById("conteudo").value = ""
+    document.getElementById("imagem").value = ""
 
 }
 
