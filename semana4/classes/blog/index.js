@@ -6,7 +6,7 @@ class Post{
     }
 }
 
-var postagens = []
+let postagens = []
 
 function novoPost(){
     let titulo = document.getElementById("titulo").value
@@ -17,5 +17,14 @@ function novoPost(){
 
     postagens.push(post)
 
+    console.log(post)
     console.log(postagens)
+      
+}
+
+
+function adicionarPostnoHtml(array){
+    
+
+
 }
