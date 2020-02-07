@@ -39,3 +39,151 @@ No console teríamos o seguinte resultado:
 1590
 
 */
+
+//Exercícios de Lógica de Programação
+
+//Exercício 1
+
+
+console.log("---------------Exercicio Logica 1-------------------")
+console.log("---------------For-------------------")
+//Temos o  for
+
+const lista = [12, 22, 32, 42, 52]
+
+for (item of lista) {
+    console.log(item)
+}
+
+console.log("---------------While-------------------")
+//Temos o while
+
+
+var numerosAleatorios = new Array(8, 7, 10, 9),
+    count = 0;
+
+
+while (count < numerosAleatorios.length) {
+
+    console.log(numerosAleatorios[count]);
+    count++
+}
+
+console.log("---------------ForEach-------------------")
+//Temos o ForEach
+
+const carros = [
+    { modelo: "A3", marca: "" },
+    { modelo: "A4", marca: "" }
+]
+
+carros.forEach((carro) => {
+    carro.marca = "Audi"
+})
+
+console.log(carros)
+
+
+
+/* Exercício 2 
+
+a. False
+b. False
+c. True
+d. True
+e. True
+
+*/
+
+//Exercício 3
+console.log("---------------Exercicio Logica 3-------------------")
+
+const quantidadeDeNumerosPares = 5
+
+for (let i = 0; i < quantidadeDeNumerosPares; i++) {
+    console.log(i * 2)
+}
+
+//Exercício 4
+console.log("---------------Exercicio Logica 4-------------------")
+
+
+function classificaTriangulo(a, b, c) {
+    if (a === b && b === c) {
+        return "Equilátero"
+    } else if (a === b || a === c && b != c) {
+        return "Isósceles"
+    } else {
+        return "Escaleno"
+    }
+}
+
+
+console.log(classificaTriangulo(5, 5, 5))
+
+//Exercício 5
+console.log("---------------Exercicio Logica 5-------------------")
+
+let numero1 = 10
+let numero2 = 20
+
+console.log("Primeiro número: " + numero1)
+console.log("Segundo número: " + numero2)
+
+if (numero1 > numero2) {
+    console.log("O maior é: " + numero1)
+} else {
+    console.log("O maior é: " + numero2)
+}
+
+if (numero1 % numero2 === 0) {
+    console.log(numero1 + " é divisível por " + numero2)
+} else {
+    console.log(numero1 + " não é divisível por " + numero2)
+}
+
+if (numero2 % numero1 === 0) {
+    console.log(numero2 + " é divisível por " + numero1)
+} else {
+    console.log(numero2 + " não é divisível por " + numero1)
+}
+
+if (numero1 > numero2) {
+    console.log("A diferença entre eles é: " + (numero1 - numero2))
+} else {
+    console.log("A diferença entre eles é: " + (numero2 - numero1))
+}
+
+//Exercício de Funções
+
+//Exercício 1
+console.log("---------------Exercicio Funções 1-------------------")
+
+const array1 = [0, 1, 2, 3, 4]
+
+function segundoMaiorEMenor(array) {
+    var maior = 0;
+    var menor = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] > maior) {
+            maior = array[i] - 1;
+
+        } else{
+            menor = array[i] + 1;
+
+        }
+    }
+
+    console.log("O segundo maior número é: " + maior + " e o segundo menor número é: " + menor)
+
+}
+
+segundoMaiorEMenor(array1)
+
+//Exercício 2    
+
+const alerta = () => {
+    return alert("Hello Furute4!!")
+}
+
+const invocaFuncao = alerta()
