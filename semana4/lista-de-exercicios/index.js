@@ -187,3 +187,271 @@ const alerta = () => {
 }
 
 const invocaFuncao = alerta()
+
+//Exercícios de Objetos
+
+/*Exercício 1
+
+Array é uma estrutura de dados que pode armazenar vários elementos.
+Objeto é uma estrutura que armazena várias propriedades onde cada propriedade pode ter um nome e valor específicos.   
+ 
+*/
+
+//Exercício 2
+console.log("---------------Exercicio Objetos 2-------------------")
+
+function criaRetangulo(lado1, lado2) {
+    const retangulo = {
+        largura: lado1,
+        altura: lado2,
+        perimetro: (2 * (lado1 + lado2)),
+        area: (lado1 * lado2)
+    }
+
+    return retangulo
+}
+
+console.log(criaRetangulo(2, 3))
+
+//Exercício 3
+console.log("---------------Exercicio Objetos 3-------------------")
+
+const filmeFavorito = {
+    titulo: "8 Mile - Rua das Ilusões",
+    ano: 2002,
+    diretor: "Curtis Hanson",
+    atores: ["Eminem", "Proof", "Kim Basinger."]
+}
+
+console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " + filmeFavorito.ano + " dirigido por " + filmeFavorito.diretor + " e estreiado por " + filmeFavorito.atores)
+
+//Exercicio 4
+console.log("---------------Exercicio Objetos 4-------------------")
+
+const pessoa = {
+    nome: "Guilherme",
+    idade: 28,
+    email: "gui_galan@hotmail.com",
+    endereco: "Rua Nossa Senhora das Mercês"
+}
+
+
+function anonimizarPessoa() {
+    const pessoaAnonima = {
+        ...pessoa,
+
+        nome: "Anônimo"
+
+    }
+
+    return pessoaAnonima
+
+
+}
+
+console.log(pessoa, anonimizarPessoa())
+
+//Exercícios de Funções de Array
+
+//Exercício 1
+
+//a.
+console.log("---------------Exercicio Funções Array 1 a.-------------------")
+
+const arrayPessoas = [
+    { nome: "Pedro", idade: 20 },
+    { nome: "João", idade: 10 },
+    { nome: "Paula", idade: 12 },
+    { nome: "Artur", idade: 89 }
+]
+
+const pessoasAdultas = arrayPessoas.filter((pessoa, index, array) => {
+    if (pessoa.idade >= 20) {
+        return {
+            nome: pessoa.nome,
+            idade: pessoa.idade
+        }
+
+    }
+
+
+})
+
+console.log(arrayPessoas)
+console.log(pessoasAdultas)
+
+//b.
+console.log("---------------Exercicio Funções Array 1 b.-------------------")
+
+const pessoasMenoresDeIdade = arrayPessoas.filter((pessoa, index, array) => {
+    if (pessoa.idade < 20) {
+        return {
+            nome: pessoa.nome,
+            idade: pessoa.idade
+        }
+
+    }
+
+
+})
+
+console.log(arrayPessoas)
+console.log(pessoasMenoresDeIdade)
+
+//Exercício 2
+
+//a.
+console.log("---------------Exercicio Funções Array 2 a.-------------------")
+
+const arrayPadrao = [1, 2, 3, 4, 5, 6]
+
+const multiplicaPor2 = arrayPadrao.map((numero, index, array) => {
+    return numero * 2
+})
+
+console.log(arrayPadrao)
+console.log(multiplicaPor2)
+
+//b.
+console.log("---------------Exercicio Funções Array 2 b.-------------------")
+
+//B
+function multiplicarPor3(array) {
+    const arrayPor3 = array.map((numero) => {
+      return `${numero * 3}`
+    })
+    return arrayPor3
+  }
+  
+  let arrayTriplicado = multiplicarPor3(arrayPadrao)  
+  
+  console.log(arrayTriplicado)
+
+//c.
+console.log("---------------Exercicio Funções Array 2 c.-------------------")
+
+function imprimeParOuImpar(array) {
+    const arrayParOuImpar = array.map((elemento, index, array) => {
+      if (elemento % 2 === 0) {
+        return `${elemento} é par`
+      }
+      else {
+        return `${elemento} é impar`
+      }
+    })
+    return arrayParOuImpar
+  }
+  
+  let arrayParOuImpar = imprimeParOuImpar(arrayPadrao)  
+  
+  console.log(arrayParOuImpar)
+
+//Exercício 3
+
+//a.
+console.log("---------------Exercicio Funções Array 3 a.-------------------")
+
+const pessoas = [
+    { nome: "Paula", idade: 12, altura: 1.8 },
+    { nome: "João", idade: 20, altura: 1.3 },
+    { nome: "Pedro", idade: 15, altura: 1.9 },
+    { nome: "Luciano", idade: 22, altura: 1.8 },
+    { nome: "Artur", idade: 10, altura: 1.2 },
+    { nome: "Soter", idade: 70, altura: 1.9 }
+]
+
+const pessoasQuePodemEntrar = pessoas.filter((pessoa, index, array) => {
+    if (pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura >= 1.5) {
+        return {
+            nome: pessoa.nome,
+            idade: pessoa.idade,
+            altura: pessoa.altura
+        }
+    }
+})
+
+console.log(pessoas)
+console.log(pessoasQuePodemEntrar)
+
+//b.
+console.log("---------------Exercicio Funções Array 3 b.-------------------")
+
+const pessoasQueNaoPodemEntrar = pessoas.filter((pessoa, index, array) => {
+    if (pessoa.idade < 14 || pessoa.idade > 60 || pessoa.altura < 1.5) {
+        return {
+            nome: pessoa.nome,
+            idade: pessoa.idade,
+            altura: pessoa.altura
+        }
+    }
+})
+
+console.log(pessoas)
+console.log(pessoasQueNaoPodemEntrar)
+
+//Exercício 4
+console.log("---------------Exercicio Funções Array 4-------------------")
+
+const consultas = [
+    { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+    { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+    { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+    { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+let arrayEmails = []
+
+for (consulta of consultas) {
+    let genero = ""
+    let senhorOuSenhora = ""
+    if (consulta.genero === "masculino") {
+        genero = "Lembrá-lo"
+        senhorOuSenhora = "Sr. "
+    } else {
+        genero = "Lembrá-la"
+        senhorOuSenhora = "Sra. "
+    }
+
+    if (consulta.cancelada === true) {
+
+        arrayEmails.push("Olá, " + senhorOuSenhora + consulta.nome + ". Estamos enviando esta mensagem para " + genero + " da sua consulta no dia " + consulta.dataDaConsulta + ". Por favor acuse o recebimento deste email.")
+    }
+    else {
+        arrayEmails.push("Olá, " + senhorOuSenhora + consulta.nome + ". Infelizmente, sua consulta marcada para o dia " + consulta.dataDaConsulta + " foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la")
+    }
+}
+console.log(arrayEmails)
+
+
+
+
+
+
+//Exercício 5
+console.log("---------------Exercicio Funções Array 5-------------------")
+
+const contas = [
+    { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+    { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+    { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+    { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+    { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+    { cliente: "Soter", saldoTotal: 1200, compras: [] }
+]
+
+function totalDasCompras(array){
+    let total = 0
+    array.forEach((compra) => {
+        total += compra
+
+    })
+
+    return total
+}
+
+contas.forEach((pessoa) =>{
+    let somaCompras = totalDasCompras(pessoa.compras)
+    pessoa.saldoTotal -= somaCompras
+})
+
+console.log(contas)
