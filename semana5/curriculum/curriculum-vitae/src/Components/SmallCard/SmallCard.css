@@ -1,0 +1,20 @@
+.small__card {
+    width: 50%;
+    margin-left: 25%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+span {
+    font-weight: bold;    
+}
+
+.small__card img{
+    float: left;
+    margin-left: 5rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;  
+    
+}

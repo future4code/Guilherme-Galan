@@ -1,0 +1,19 @@
+button {
+    height: 50px;
+    width: 150px;
+    border-radius: 30%;
+    border: 1px solid black;
+    background-color: white;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+.botao{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

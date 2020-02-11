@@ -1,0 +1,26 @@
+.big__card{
+    width: 50%;
+    margin-left: 25%;    
+    border-top: 2px solid black;  
+
+}
+
+.big__card img{
+    float: left;
+    margin-left: 1rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+h3{
+    text-align: center;
+}
+
+.descricao{
+    font-family: Roboto;
+    font-size: 20px;
+    display: grid;
+    justify-content: space-evenly;
+}
+
