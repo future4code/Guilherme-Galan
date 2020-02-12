@@ -1,0 +1,18 @@
+.inputs {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+      
+}
+
+.inputs > input , button {
+    width: 30px;
+    height: 30px;
+}
+
+.inputs p {
+    margin-right: 5rem;
+    
+
+}
+
