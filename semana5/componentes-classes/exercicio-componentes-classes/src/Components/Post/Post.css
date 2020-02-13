@@ -1,0 +1,10 @@
+.post{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;    
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: auto auto auto;
+    row-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
