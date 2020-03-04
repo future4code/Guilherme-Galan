@@ -4,35 +4,48 @@ import axios from 'axios'
 
 const ContainerCadastro = styled.div`
     text-align:center;
+    
+`
+
+const Header = styled.header`
+    background-color: grey;
+    height:50px;
+    color:#FCC302;
+    padding-top:20px;
+    font-size:20px;
+    margin-bottom:5rem;
+    text-align:center;
 
 `
 
 const Inputs = styled.input`
-    margin: 1px 1px;
+    margin: 1px 1px;   
+
 `
 
 const baseUrl = "https://us-central1-future4-users.cloudfunctions.net/api"
 
-class CadastroUsuario extends React.Component{
-    constructor(props){
+class CadastroUsuario extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
             name: "",
-            email: ""
+            email: "",
+
         }
-    }
+    }    
 
     handleChangeName = (event) => {
-        this.setState({name: event.target.value})
+        this.setState({ name: event.target.value })
     }
 
     handleChangeEmail = (event) => {
-        this.setState({email: event.target.value})
+        this.setState({ email: event.target.value })
     }
 
     criarUsuario = () => {
         const novoUsuario = {
-            name: this.state.name ,
+            name: this.state.name,
             email: this.state.email
         }
 
@@ -42,21 +55,26 @@ class CadastroUsuario extends React.Component{
             }
         })
 
-        novoUsuarioPromessa.then(response =>{
-            console.log(response.data)
+        novoUsuarioPromessa.then(response => {
+            alert("Usuário criado com Sucesso!!!")
+            this.setState({
+                name: "",
+                email: ""
+            })           
 
         }).catch(error => {
-            console.log(error)
+            alert(error.response.data.message)
         })
-    }
-    
+    }   
 
-    render(){
-        return(
+
+    render() {
+        return (
             <ContainerCadastro>
-                <Inputs type="text" value={this.state.name} placeholder="Nome" onChange={this.handleChangeName} />
-                <Inputs type="text" value={this.state.email} placeholder="Email" onChange={this.handleChangeEmail} />
-                <button onClick={this.criarUsuario}>Criar Usuário</button>
+                <Header>Cadastro de Usuários</Header>
+                    <Inputs type="text" value={this.state.name} placeholder="Nome:" onChange={this.handleChangeName} />
+                    <Inputs type="text" value={this.state.email} placeholder="Email:" onChange={this.handleChangeEmail} />
+                    <button onClick={this.criarUsuario}>Criar Usuário</button><hr />                 
             </ContainerCadastro>
 
         )
