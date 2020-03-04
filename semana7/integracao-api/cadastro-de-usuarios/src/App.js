@@ -1,26 +1,21 @@
 import React from 'react';
-import './App.css';
 import styled from 'styled-components'
 import CadastroUsuario from './components/CadastroUsuario';
 import ListaDeUsuarios from './components/ListaDeUsuarios';
+import DetalhesUsuario from './components/DetalhesUsuario';
 
 const Container = styled.div`
   text-align:center;
-  
-
 `
 
 const BotaoMostrarOuVoltar = styled.button `
         position:fixed;
         bottom:50%;
-        left:45%;
+        left:43%;
         width: 300px;
         padding: 15px 20px;
-        border: 1px solid #eee;
-        border-radius: 6px;
-        background-color: #FCC302;
-        font-size: 18px;    
-
+        font-size:20px;
+        font-weight:bold;
 `
 
 class App extends React.Component {
@@ -36,15 +31,15 @@ class App extends React.Component {
     }
 
     render(){
-      const textoDoBotao = this.state.mostraLista ? 'Voltar' : 'Mostrar Lista de Usuários'
+      const textoDoBotao = this.state.mostraLista ? 'Voltar' : 'Lista de Usuários'
       const renderTela = this.state.mostraLista ? <ListaDeUsuarios /> : <CadastroUsuario />
 
       return(
         <Container>
-          <BotaoMostrarOuVoltar onClick={this.mostrarLista}>
+          <BotaoMostrarOuVoltar className="btn btn-outline-dark" onClick={this.mostrarLista}>
             {textoDoBotao}
           </BotaoMostrarOuVoltar>
-            {renderTela}
+            {renderTela}          
         </Container>
       )
     }

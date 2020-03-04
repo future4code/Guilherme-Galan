@@ -3,26 +3,32 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 const ContainerLista = styled.div`
+    text-align:center;
     
 `
 const Header = styled.header`
-    background-color: grey;
+    background-color: #CDCDCD;
     height:50px;
-    color:#FCC302;
-    padding-top:20px;
-    font-size:20px;
+    color:black;
+    font-weight:bold;
+    padding-top:5px;
+    font-size:28px;
     margin-bottom:5rem;
     text-align:center;
 `
 
-const Lista = styled.ul `
-    display:flex;
-    flex-direction:column;
-    align-items:center;    
+const Lista = styled.ol `
+    width:350px; 
+    margin-left:43%;
 `
 
-const Deletar = styled.button `
-    margin-left:10px;
+const ItemLista = styled.li `
+    display:flex;
+    justify-content:space-around;
+    font-size:20px;
+`
+
+const Button = styled.button `
 `
 
 const baseUrl = "https://us-central1-future4-users.cloudfunctions.net/api"
@@ -55,6 +61,8 @@ class ListaDeUsuarios extends React.Component{
     }
 
     deletarUsuario = (idUsuario) => {
+        const confirmacao = window.confirm("Tem certeza que deseja deletar esse usuário?")
+        if(confirmacao){          
         const deletarUsuarioPromessa = axios.delete(`${baseUrl}/users/deleteUser?id=${idUsuario}`, {
             headers:{
                 'api-token': "guilherme-galan",
@@ -68,7 +76,7 @@ class ListaDeUsuarios extends React.Component{
             alert("Erro ao apagar usuário.")
             console.log(error.response.data.message)
         })
-
+    }
 
     }
 
@@ -77,14 +85,15 @@ class ListaDeUsuarios extends React.Component{
             <ContainerLista>
                 <Header>Lista de Usuários</Header>
                 {this.state.listaDeUsuarios.length === 0 && <p>Carregando Lista...</p>}
-                    <Lista>
+                    <Lista className="list-group">
                         {this.state.listaDeUsuarios.map((usuario) =>
-                            <li
+                            <ItemLista className="list-group-item list-group-item-action"
                                 key={usuario.id}                            
                             >
                                 {usuario.name}
-                                <Deletar onClick={() => this.deletarUsuario(usuario.id)}>Deletar</Deletar>
-                            </li>
+                                <Button className="btn btn-outline-danger" onClick={() => this.deletarUsuario(usuario.id)}>Deletar</Button>
+                                <Button className="btn btn-outline-warning">Detalhes</Button>
+                            </ItemLista>
                         )}
                     </Lista>             
             </ContainerLista>

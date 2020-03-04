@@ -4,22 +4,25 @@ import axios from 'axios'
 
 const ContainerCadastro = styled.div`
     text-align:center;
+
     
 `
 
 const Header = styled.header`
-    background-color: grey;
+    background-color: #CDCDCD;
     height:50px;
-    color:#FCC302;
-    padding-top:20px;
-    font-size:20px;
+    color:black;
+    font-weight:bold;
+    padding-top:5px;
+    font-size:28px;
     margin-bottom:5rem;
     text-align:center;
 
 `
 
 const Inputs = styled.input`
-    margin: 1px 1px;   
+    margin: 1px 1px;
+    margin-bottom:10px;   
 
 `
 
@@ -73,8 +76,8 @@ class CadastroUsuario extends React.Component {
             <ContainerCadastro>
                 <Header>Cadastro de Usuários</Header>
                     <Inputs type="text" value={this.state.name} placeholder="Nome:" onChange={this.handleChangeName} />
-                    <Inputs type="text" value={this.state.email} placeholder="Email:" onChange={this.handleChangeEmail} />
-                    <button onClick={this.criarUsuario}>Criar Usuário</button><hr />                 
+                    <Inputs type="text" value={this.state.email} placeholder="Email:" onChange={this.handleChangeEmail} /> <br />
+                    <button className="btn btn-outline-success" onClick={this.criarUsuario}>Cadastrar Usuário</button><hr />                 
             </ContainerCadastro>
 
         )
