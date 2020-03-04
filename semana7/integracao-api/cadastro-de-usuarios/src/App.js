@@ -10,8 +10,8 @@ const Container = styled.div`
 
 const BotaoMostrarOuVoltar = styled.button `
         position:fixed;
-        bottom:50%;
-        left:43%;
+        top:10%;
+        left:80%;
         width: 300px;
         padding: 15px 20px;
         font-size:20px;

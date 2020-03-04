@@ -12,9 +12,6 @@ class DetalhesUsuario extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            editarNome: '',
-            editarEmail: '',
-            editarUsuario:false,
             usuarioClicado: {}
         }
     }
