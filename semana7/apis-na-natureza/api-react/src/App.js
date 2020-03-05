@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Botao = styled.button`
   position:fixed;
-  bottom:95%;
+  top:1%;
   right:2%;
   width:300px;
 
