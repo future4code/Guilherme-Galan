@@ -6,6 +6,37 @@ import AdicionarMusica from './AdicionarMusica';
 const ListaWrapper = styled.div`
 
 `
+const Lista = styled.ul`
+    width:450px; 
+    margin-left:40%;
+`
+const ItemLista = styled.li`
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+`
+const Button = styled.button``
+
+const ButtonMusic = styled.button`
+    position:fixed;
+    top:12%;
+    left:10%;
+    width: 300px;
+    padding: 15px 20px;
+    font-size:20px;
+    font-weight:bold;
+`
+
+const DetalhesWrapper = styled.div`
+    margin-top:10px;
+`
+
+const Detalhes = styled.div`
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    position: relative;
+    
+`
 
 const baseURL = "https://us-central1-spotif4.cloudfunctions.net/api";
 const authToken = "guilherme-galan";
@@ -89,31 +120,36 @@ class ListaDePlaylists extends Component {
     render() {
         const adicionarMusica = this.state.adicionarMusica ?  <AdicionarMusica /> : ""
         const detalhesPlaylist = this.state.mostraDetalhes ?
-            <div>
+            <DetalhesWrapper>
                 <p>Detalhes da Playlist: {this.state.nomePlaylist}</p><hr />
                 <p>Músicas</p> <hr />
                 {this.state.todasAsMusicas.map((musica) =>
-                    <div>
+                    <Detalhes>
                         <p>Artista: {musica.artist}</p>
-                        <p>Música: {musica.name}</p>
-                    </div>
+                        <p>Música: {musica.name}</p>                        
+                        <audio controls>
+                        <source src={musica.url} />
+                        </audio>
+                    </Detalhes>
                 )}
-            </div> : ""
+            </DetalhesWrapper> : ""
         return (
             <ListaWrapper>
                 {this.state.listaDePlaylists.length === 0 && <p>Carregando Playlists...</p>}
-                <ul>
+                <Lista className="list-group">
                     {this.state.listaDePlaylists.map((playlist) =>
-                        <li key={playlist.id}>
+                        <ItemLista className="list-group-item list-group-item-action" key={playlist.id}>
                             {playlist.name}
-                            <button onClick={() => this.deletarPlaylist(playlist.id)}>Deletar</button>
-                            <button onClick={() => this.detalhesPlaylist(playlist.id, playlist.name)}>Detalhes</button>                            
-                        </li>
+                            <Button className="btn btn-outline-danger" onClick={() => this.deletarPlaylist(playlist.id)}>Deletar</Button>
+                            <Button className="btn btn-outline-warning" onClick={() => this.detalhesPlaylist(playlist.id, playlist.name)}>Detalhes</Button>                            
+                        </ItemLista>
                     )}
-                </ul>
+                </Lista>
                 {detalhesPlaylist}
-                <button onClick={this.adicionarMusica}>Adiconar Músicas</button>
-                {adicionarMusica}                
+                <div>
+                <ButtonMusic className="btn btn-outline-success" onClick={this.adicionarMusica}>Adiconar Músicas</ButtonMusic>
+                {adicionarMusica}
+                </div>                
             </ListaWrapper>
         )
     }

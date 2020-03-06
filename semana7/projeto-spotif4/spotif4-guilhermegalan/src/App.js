@@ -11,7 +11,7 @@ const Header = styled.header`
     display:flex;
     justify-content:space-around;
     height:50px;
-    background:green;
+    background:#98FB98;
     align-items:center;    
 `
 
@@ -23,6 +23,10 @@ const Botao = styled.button`
     padding: 15px 20px;
     font-size:20px;
     font-weight:bold;
+`
+
+const Titulo = styled.h3`
+  margin:80px 80px;
 `
 
 class App extends Component {
@@ -44,10 +48,10 @@ class App extends Component {
     return (
       <MainWrapper>
         <Header>
-          <h2>Spotif4</h2>
+          <h2>Spotif4 - Projeto Guilherme Galan</h2>
         </Header>
-        <h3>{textoH3}</h3>
-        <Botao onClick={this.mostraLista}>{textoBotao}</Botao>
+        <Titulo>{textoH3}</Titulo>
+        <Botao className="btn btn-outline-dark" onClick={this.mostraLista}>{textoBotao}</Botao>
         {renderTela}
       </MainWrapper>
     )

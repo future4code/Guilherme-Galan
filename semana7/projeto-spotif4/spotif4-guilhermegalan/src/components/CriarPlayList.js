@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 
-const CriarPlayListWrapper = styled.div`
+const CriarPlayListWrapper = styled.div`  
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 
 `
+
+const Botao = styled.button`
+    margin-top:30px;
+`
+
 const baseURL = "https://us-central1-spotif4.cloudfunctions.net/api";
 const authToken = "guilherme-galan";
 
@@ -44,7 +53,7 @@ class CriarPlayList extends Component{
         return(
             <CriarPlayListWrapper>
                 <input type="text" value={this.state.nomePlaylist} placeholder="Nome da Playlist" onChange={this.novoNomePlaylist}/>
-                <button onClick={this.criarPlayList}>Criar Playlist</button>
+                <Botao className="btn btn-success" onClick={this.criarPlayList}>Criar Playlist</Botao>
             </CriarPlayListWrapper>
         )
     }
