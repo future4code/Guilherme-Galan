@@ -15,7 +15,7 @@ export const routes = {
   form: "/application-form",
   createTrip: "/trips/create",
   listTrips: "/trips/list",
-  tripsDetails: "/trips/details"
+  tripDetails: "/trips/details"
   
 };
 
@@ -28,7 +28,7 @@ function Router(props) {
         <Route exact path={routes.form} component={FormPage} />
         <Route exact path={routes.createTrip} component={CreateTripPage} />
         <Route exact path={routes.listTrips} component={ListTripsPage} />
-        <Route exact path={routes.tripsDetails} component={TripDetailsPage} />
+        <Route exact path={routes.tripDetails} component={TripDetailsPage} />
       </Switch>
     </ConnectedRouter>
   );

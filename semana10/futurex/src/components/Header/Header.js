@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
+import {routes} from "../../containers/Router";
+import { push } from "connected-react-router";
+
+
 
 const HeaderPages = styled.header`
     display:flex;
@@ -11,10 +16,16 @@ class Header extends Component{
         return(
             <HeaderPages>
                 <p>Logo</p>
-                <h2>Menu</h2>
+                <button onClick={this.props.login}>Login</button>
             </HeaderPages>
         )
     }
 }
 
-export default Header
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        login: () => dispatch(push(routes.login))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Header)
