@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import { connect } from 'react-redux'
-import { fetchList } from '../../actions/handleTrips'
+import {fetchList, getDetail} from '../../actions/handleTrips'
 import { routes } from "../../containers/Router";
 import { push } from "connected-react-router";
 
@@ -30,21 +30,32 @@ const Bold = styled.span`
 `
 
 
+
+
 class ListTripsPage extends Component {
     constructor(props) {
         super(props)
     }
 
     componentDidMount() {
-        this.props.fetchList()
+        const token = localStorage.getItem('token')
+        if(token === null){
+            this.props.login()
+        }else{
+            this.props.fetchList()
+        }
+    }
 
+
+    detailTrip = (tripId) => {
+        this.props.getDetail(tripId)
+        this.props.details()
     }
 
     render() {
-        console.log("state", this.props.tripList)
         return (
             <ListWrapper>
-                <h2>Lista de Viagens</h2>
+                <h2>Lista de Viagens Espaciais</h2>
                 <CardWrapper>
                     {this.props.tripList.map(trips => {
                         return (
@@ -54,7 +65,7 @@ class ListTripsPage extends Component {
                                 <p><Bold>Planeta: </Bold>{trips.planet}</p>
                                 <p><Bold>Duração: </Bold>{trips.durationInDays} dias</p>
                                 <p><Bold>Data:</Bold> {trips.date}</p>
-                                <button onClick={this.props.details}>Ver Detalhes</button>
+                                <button type="button" class="btn btn-outline-warning" onClick={() => (this.detailTrip(trips.id))}>Ver Detalhes</button>
                             </Card>
                         )
                     })}
@@ -75,7 +86,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchList: () => dispatch(fetchList()),
-        details: () => dispatch(push(routes.tripDetails))
+        details: () => dispatch(push(routes.tripDetails)),
+        login: () => dispatch(push(routes.login)),
+        getDetail: (id) => dispatch(getDetail(id))
     }
 }
 

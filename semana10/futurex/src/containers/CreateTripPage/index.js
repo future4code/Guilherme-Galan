@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { TextField } from '@material-ui/core'
+
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import { routes } from '../Router'
+import {createNewTrip} from "../../actions/handleTrips";
 
 
 const CreateWrapper = styled.div`
     text-align:center;
+    max-width:50%;
+    margin: auto auto;
+`
+
+const Title = styled.h1`
+    margin:100px;
+`
+
+const Button = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
 `
 
 const createTripForm = [
@@ -22,7 +35,9 @@ class CreateTripPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            form: {},
+            form: {
+                planet:"",
+            },
             planets: ["Mercúrio", "Vênus", "Marte", "Júpiter", "Saturno", "Urano", "Netuno"]
         }
     }
@@ -31,7 +46,7 @@ class CreateTripPage extends Component {
         const token = window.localStorage.getItem("token")
 
         if(token === null){
-            this.props.goToLogin()
+            this.props.login()
         }
     }
 
@@ -47,19 +62,27 @@ class CreateTripPage extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        console.log(this.state.form)
+        this.props.createNewTrip(this.state.form)
+    }
+
+    planetId = (event) =>{
+        this.setState({
+            form: {
+                planet: event.target.value,
+            }
+        })
     }
 
     render() {
         return (
             <CreateWrapper>
-                <h1>Criar uma Viagem</h1>
+                <Title>Criar uma Viagem</Title>
                 <div>
                     <form onSubmit={this.handleOnSubmit}>
                         {createTripForm.map(input => (
-                            <div key={input.name}>
-                                <div>
-                                    <label htmlFor={input.name}>{input.label}: </label>
+                            <div class="input-group input-group-sm mb-3" key={input.name}>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">{input.label}</span>                                    
                                 </div>
                                 <input rows="3" cols="30"
                                     name={input.name}
@@ -70,16 +93,23 @@ class CreateTripPage extends Component {
                                     pattern={input.pattern}
                                     min={input.min}
                                     title={input.title}
+                                    class="form-control" 
+                                    aria-label="Sizing example input" 
+                                    aria-describedby="inputGroup-sizing-sm"
                                 />
                             </div>
                         ))}
-                        <select>
+                        
+                        <select required onChange={this.planetId}>
                             <option key={"escolha"}>Escolha o Planeta</option>
                             {this.state.planets.map((planet, index) => (
                                 <option key={index} value={planet}>{planet}</option>
                             ))}
                         </select>
-                        <button type="submit">Criar Trip</button>
+                        <Button>
+                            <button type="submit" class="btn btn-outline-success">Criar Trip</button>
+                            <button onClick={() => (this.props.listTrips())} type="submit" class="btn btn-outline-info">Lista de Trips</button>
+                        </Button>
                     </form>
                 </div>
             </CreateWrapper>
@@ -88,23 +118,9 @@ class CreateTripPage extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    goToLogin: () => dispatch(push(routes.login))
+    login: () => dispatch(push(routes.login)),
+    listTrips: () => dispatch(push(routes.listTrips)),
+    createNewTrip: (trip) => dispatch(createNewTrip(trip))
 })
 
 export default connect(null, mapDispatchToProps)(CreateTripPage)
-
-
-
-/*  Form de Criação de Viagem
-
-name - mínimo 5 letras
-
-planet - DropDown com todos os Planetas
-
-date - Data no Futuro
-
-description - Mínimo 30 Letras
-
-durationInDays - Mínimo 50
-
-*/

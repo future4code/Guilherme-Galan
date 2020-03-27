@@ -5,10 +5,20 @@ import { connect } from 'react-redux'
 import { routes } from "../../containers/Router";
 import { push } from "connected-react-router";
 
-import Button from '@material-ui/core/Button';
+const ButtonWrapper = styled.div`
+    margin-top:80px;
+`
 
 const HomeWrapper = styled.div`
     text-align:center;
+`
+
+const Img = styled.img`
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    margin-top:100px;
+
 `
 
 
@@ -16,7 +26,10 @@ class HomePage extends Component {
     render() {
         return (
             <HomeWrapper>
-                <Button variant="outlined" onClick={this.props.formTrip}>Cadastrar para uma Viagem</Button>
+                <Img src={require("../../img/futurex.png") }/>
+                <ButtonWrapper>
+                <button type="button" class="btn btn-success" onClick={this.props.formTrip}>Ir ao Mundo da Lua</button>
+                </ButtonWrapper>
             </HomeWrapper>
         )
     }

@@ -3,13 +3,19 @@ import styled from 'styled-components'
 
 const FormWrapper = styled.div`
     text-align:center;
+    max-width:50%;
+    margin: auto auto;
+`
+
+const Title = styled.h3`
+    margin:100px 50px;
 `
 
 const applicationForm = [
-    { name: "name", type: "text", label: "Seu Nome", required: true, pattern: "[a-zA-Z ]{3,}", title:"Digite pelo menos 3 letras" },
-    { name: "age", type: "number", label: "Sua Idade", required: true, min: "18" },
+    { name: "name", type: "text", label: "Nome", required: true, pattern: "[a-zA-Z ]{3,}", title:"Digite pelo menos 3 letras" },
+    { name: "age", type: "number", label: "Idade", required: true, min: "18" },
     { name: "applicationText", type: "textarea", label: "Motivos para ser escolhido", required: true, pattern:"[a-zA-Z0-9 ]{30,}", title:"Pelo menos 30 caracteres" },
-    { name: "profession", type: "text", label: "Sua Profissão", required: true, pattern:"[a-zA-Z0-9 ]{10,}", title:"Pelo menos 10 caracteres"}
+    { name: "profession", type: "text", label: "Profissão", required: true, pattern:"[a-zA-Z0-9 ]{10,}", title:"Pelo menos 10 caracteres"}
 ]
 
 class FormPage extends Component {
@@ -38,13 +44,13 @@ class FormPage extends Component {
     render() {
         return (
             <FormWrapper>
-                <h3>Se candidate para a melhor viagem da sua vida!!</h3>                
+                <Title>Se candidate para a melhor viagem da sua vida!!</Title>                
                 <div>
                     <form onSubmit={this.handleOnSubmit}>
                         {applicationForm.map(input => (
-                            <div key={input.name}>
-                                <div>
-                                    <label htmlFor={input.name}>{input.label}: </label>
+                            <div class="input-group input-group-sm mb-3" key={input.name}>
+                                <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">{input.label}</span>                                    
                                 </div>
                                 <input rows="3" cols="30"
                                     name={input.name}
@@ -55,10 +61,13 @@ class FormPage extends Component {
                                     pattern={input.pattern}
                                     min={input.min}
                                     title={input.title}
+                                    class="form-control" 
+                                    aria-label="Sizing example input" 
+                                    aria-describedby="inputGroup-sizing-sm"
                                 />
                             </div>
                         ))}
-                        <button type="submit">Confirmar</button>
+                        <button class="btn btn-outline-success" type="submit">Estou Pronto !!</button>
                     </form>
                 </div>
             </FormWrapper>
@@ -67,14 +76,3 @@ class FormPage extends Component {
 }
 
 export default FormPage
-
-/*
-
-name - minimo 3 letras
-age - maior que 18
-applicationText minimo 30 caracteres
-profession minimo 10 caracteres
-country - dropdown
-tripId - Para o Usuario Mostrar um DropDown com Nome da Viagem - Planeta - e enviar o id da viagem selecionada para o Back
-
-*/

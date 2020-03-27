@@ -7,8 +7,8 @@ import { login } from "../../actions/auth";
 
 const LoginWrapper = styled.form`
   width: 100%;
-  height: 100vh;
-  gap: 10px;
+  height: 50vh;
+  gap: 20px;
   place-content: center;
   justify-items: center;
   display: grid;
@@ -41,7 +41,8 @@ class LoginPage extends Component {
     const { email, password } = this.state;
 
     return (
-      <LoginWrapper onSubmit={this.handleLogin}>
+        <LoginWrapper onSubmit={this.handleLogin}>
+        <h2>Área exclusiva para Administradores</h2>
         <TextField
           onChange={this.handleFieldChange}
           name="email"
