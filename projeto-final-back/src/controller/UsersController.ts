@@ -122,4 +122,23 @@ export class UsersController {
             UsersDataBase.destroyConnection();
         }
     }
+
+    async approveBand(req: Request, res: Response){
+        try{
+            const isAdmin = new TokenGenerator().verify(req.headers.authorization as string)
+            if(isAdmin.type !== "ADMIN"){
+                throw new UnauthorizedError('Acces Denied!')
+            }
+
+            const idBand = req.body.id
+
+            await UsersController.UsersBusiness.approveBand(idBand)
+
+            res.status(200).send()
+        }catch(err){
+            res.status(err.errorCode || 400).send({message: err.message})
+        }finally{
+            UsersDataBase.destroyConnection();
+        }
+    }
 }

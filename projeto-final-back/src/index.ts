@@ -2,6 +2,7 @@ import express from 'express';
 import { AddressInfo } from 'net';
 import dotenv from 'dotenv';
 import { usersRouter } from './router/UsersRouter';
+import { genresRouter } from './router/GenresRouter';
 
 dotenv.config();
 
@@ -19,3 +20,4 @@ const server = app.listen(process.env.PORT || 3003, () => {
 });
 
 app.use("/users/", usersRouter);
+app.use("/genres", genresRouter);

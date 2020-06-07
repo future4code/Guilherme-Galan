@@ -8,7 +8,7 @@ export class UsersDataBase extends BaseDataBase {
         nickname: string,
         password: string,
         type: string
-        ){
+        ): Promise <any> {
             return await super.getConnection().raw(`
                 INSERT INTO ${BaseDataBase.USERS_TABLE_NAME} (id, name, email, nickname, password, type)
                 VALUES('${id}', '${name}', '${email}', '${nickname}', '${password}', '${type}')
@@ -22,14 +22,14 @@ export class UsersDataBase extends BaseDataBase {
         nickname: string,
         password: string,
         type: string = "ADMIN"
-    ){
+    ): Promise <any> {
         return await super.getConnection().raw(`
             INSERT INTO ${BaseDataBase.USERS_TABLE_NAME} (id, name, email, nickname, password, type)
             VALUES('${id}', '${name}', '${email}', '${nickname}', '${password}', '${type}')
         `)
     }
 
-    public async signupBand(
+    public async signupBand (
         id: string,
         name: string,
         email: string,
@@ -37,14 +37,14 @@ export class UsersDataBase extends BaseDataBase {
         password: string,
         type: string = "BAND",
         description: string
-    ){
+    ): Promise <any> {
         return await super.getConnection().raw(`
             INSERT INTO ${BaseDataBase.USERS_TABLE_NAME} (id, name, email, nickname, password, type, description)
             VALUES('${id}', '${name}', '${email}', '${nickname}', '${password}', '${type}', '${description}')
         `)
     }
 
-    public async getAllBands(){
+    public async getAllBands(): Promise <any>{
         const result = await super.getConnection().raw(`
             SELECT
                 name,
@@ -63,5 +63,12 @@ export class UsersDataBase extends BaseDataBase {
         `)       
 
         return user[0][0]   
+    }
+
+    public async approveBand(id: string): Promise <any> {
+        await super.getConnection().raw(`
+            UPDATE ${BaseDataBase.USERS_TABLE_NAME}
+            SET isAproved = 1 WHERE id = '${id}'
+        `)
     }
 }

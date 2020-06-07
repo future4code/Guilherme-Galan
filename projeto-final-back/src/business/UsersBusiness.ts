@@ -95,4 +95,12 @@ export class UsersBusiness {
 
         return result
     }
+
+    public async approveBand(id: string){
+        if(!id){
+            throw new InvalidParameterError("Invalid ID")
+        }
+
+        await this.usersDataBase.approveBand(id)
+    }
 }
