@@ -1,0 +1,87 @@
+B. Qual o retorno da função se ela receber um objeto vazio de entrada?
+
+O retorno da função será status code 400 com a mensagem de erro 'Missing input'
+
+--------------------------------------------------------------------------------------
+
+C. Qual o retorno da função se ela receber este objeto como entrada:
+{
+	"user": {
+		"name": "Astrodev"
+	}
+}
+
+O retorno da função será status code 400 com a mensagem de erro 'Missing input', 
+pois está sem o 'info' no objeto.
+
+--------------------------------------------------------------------------------------
+
+D. Qual o retorno da função se ela receber este objeto como entrada:
+{
+  "user": {
+		"info": {
+			"name": "Astrodev"
+		}
+  }
+}
+
+O retorno da função será status code 400 com a mensagem de erro 'Missing email'
+
+--------------------------------------------------------------------------------------
+
+E. Qual o retorno da função se ela receber este objeto como entrada:
+{
+  "user": {
+		"info": {
+			"name": "Astrodev",
+			"email": "astrodev@f4.com.br",
+			"password": "12345"
+		}
+  }
+}
+
+O retorno da função será status code 400 com a mensagem de erro 'Invalid password', pois 
+a senha tem menos que 6 dígitos
+
+--------------------------------------------------------------------------------------
+
+F. Qual o retorno da função se ela receber este objeto como entrada:
+{
+  "user": {
+		"info": {
+			"name": "Astrodev",
+			"email": "astrodev@f4.com.br",
+			"password": "123456"
+		}
+  }
+}
+
+O retorno da função será status code 200 com a mensagem 'User is correct'
+
+--------------------------------------------------------------------------------------
+
+G. Onde devemos alterar para que a função retorne o status 422 caso o email seja inválido?
+
+Devemos alterar no return do if que faz a verificação do email
+
+if (!user.email) {
+    return {
+      statusCode: 422,
+      body: JSON.stringify({ message: "Missing email" })
+    };
+  }
+
+  --------------------------------------------------------------------------------------
+
+H. Qual deve ser o objeto de entrada para que a função retorne o status `200`?
+
+Deve ser um objeto assim, com nome, email e senha válidos de acordo com as verificações
+{
+    "user": {
+          "info": {
+              "name": "Guilherme",
+              "email": "guilherme@f4.com.br",
+              "password": "123456"
+          }
+    }
+  }

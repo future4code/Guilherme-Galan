@@ -1,0 +1,19 @@
+{
+  "name": "exercicio5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf build && tsc "
+  },
+  "author": "Guilherme",
+  "license": "ISC",
+  "dependencies": {
+    "@types/knex": "^0.16.1",
+    "@types/node": "^14.0.12",
+    "dotenv": "^8.2.0",
+    "knex": "^0.21.1",
+    "mysql": "^2.18.1",
+    "typescript": "^3.9.5"
+  }
+}
